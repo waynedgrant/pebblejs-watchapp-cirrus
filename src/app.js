@@ -8,12 +8,8 @@ var UI = require('ui');
 var weatherUrl = null;
 var units = null;
 
-Settings.config(
-  { url: 'http://www.waynedgrant.com/pebblejs-watchapp-cirrus/config.html' },
-  function(e) { // Config page closed
-    get_weather(); // TODO - only do this when config 'Saved' rather than simply 'Canceled'
-  }
-);
+var degreesC = '\u00B0C';
+var degreesF = '\u00B0F';
 
 var configRequiredCard = new UI.Card({
   title: 'Configuration Required',
@@ -30,6 +26,17 @@ var fetchFailedCard = new UI.Card({
 });
 
 var mainMenu = null;
+
+Settings.config(
+  { url: 'http://www.waynedgrant.com/pebblejs-watchapp-cirrus/settings.html' },
+  function(e) { // Settings page closed
+    configRequiredCard.hide();
+    fetchFailedCard.hide();
+    if (e.options.weatherUrl != null) { // Settings page not canceled
+        get_weather();
+    }
+  }
+);
 
 function format(value) {
   if (value === null) {
@@ -57,6 +64,10 @@ function format_trend(trend) {
 }
 
 function get_weather() {
+  
+  if (mainMenu !== null) {
+    mainMenu.hide();
+  }
   
   weatherUrl = Settings.option('weatherUrl');
   units = Settings.option('units');
@@ -113,9 +124,9 @@ function buildWeatherMenus(data) {
   var max_gust_speed = null;
 
   if (units == 'metric') { // TODO - get degree symbold working
-    temperature_current = format(data.temperature.current.c) + ' C';
-    temperature_high = format(data.temperature.high.c) + ' C';
-    temperature_low = format(data.temperature.low.c) + ' C';
+    temperature_current = format(data.temperature.current.c) + degreesC;
+    temperature_high = format(data.temperature.high.c) + degreesC;
+    temperature_low = format(data.temperature.low.c) + degreesC;
 
     surface_pressure_current = format(data.pressure.current.hpa) + ' hPa';
     surface_pressure_trend = format_trend(data.pressure.trend_per_hr.hpa);
@@ -131,9 +142,9 @@ function buildWeatherMenus(data) {
     gust_speed = format(data.wind.gust_speed.kmh) + ' km/h';
     max_gust_speed = format(data.wind.max_gust_speed.kmh) + ' km/h';
   } else {
-    temperature_current = format(data.temperature.current.f) + ' F';
-    temperature_high = format(data.temperature.high.f) + ' F';
-    temperature_low = format(data.temperature.low.f) + ' F';
+    temperature_current = format(data.temperature.current.f) + degreesF;
+    temperature_high = format(data.temperature.high.f) + degreesF;
+    temperature_low = format(data.temperature.low.f) + degreesF;
 
     surface_pressure_current = format(data.pressure.current.inhg) + ' inHg';
     surface_pressure_trend = format_trend(data.pressure.trend_per_hr.inhg);
@@ -220,8 +231,7 @@ function buildMainMenu(local_time, station_name, temperature_current, temperatur
   });
 }
 
-function buildTemperatureMenu(temperature_current, temperature_trend, temperature_high,
-                              temperature_low) {
+function buildTemperatureMenu(temperature_current, temperature_trend, temperature_high, temperature_low) {
   return new UI.Menu({
     sections: [{
       title: 'Temperature',
@@ -239,8 +249,7 @@ function buildTemperatureMenu(temperature_current, temperature_trend, temperatur
   });
 }
 
-function buildSurfacePressureMenu(surface_pressure_current, surface_pressure_trend,
-                                   surface_pressure_high, surface_pressure_low) {
+function buildSurfacePressureMenu(surface_pressure_current, surface_pressure_trend, surface_pressure_high, surface_pressure_low) {
   return new UI.Menu({
     sections: [{
       title: 'Surface Pressure',
