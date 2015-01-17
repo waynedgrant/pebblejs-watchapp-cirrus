@@ -17,28 +17,34 @@ pebblejs-watchapp-cirrus supports the display of various weather items in either
 ## Weather Items
 
 ### Temperature
-Current Temperature with Trend
-Daily High
-Daily Low
+Celsius or Fahrenheit
+* Current Temperature with Trend
+* Daily High
+* Daily Low
 
 ### Surface Pressure
-Current Surface Pressure with Trend
-Daily High
-Daily Low
+Hectopsacals (hPa) or Inches of Mercury (inHg)
+* Current Surface Pressure with Trend
+* Daily High
+* Daily Low
 
 ### Humidity
-Current Humidity with Trend
-Daily High
-Daily Low
+Percentage
+* Current Humidity with Trend
+* Daily High
+* Daily Low
 
 ### RainFall
-Daily Rainfall
-Current Rate
-Max Rate
-Yesterday's Rainfall
+Millimetres (mm) or Inches (in)
+* Daily Rainfall
+* Current Rate
+* Max Rate
+* Yesterday's Rainfall
 
 ### Wind
-Average Wind Speed
-Wind Direction
-Gust Speed
-Max Gust Speed
+Kilometres per Hour (km/h) or Miles per Hour (mph)
+Cardinal Direction
+* Average Wind Speed
+* Wind Direction
+* Gust Speed
+* Max Gust Speed
