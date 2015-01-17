@@ -13,3 +13,32 @@ pebblejs-watchapp-cirrus is a PebbleJS based Watch App that displays data expose
 pebblejs-watchapp-cirrus supports the display of various weather items in either metric or imperial measurement units.
 
 ![alt tag](screenshot.png)
+
+## Weather Items
+
+### Temperature
+Current Temperature with Trend
+Daily High
+Daily Low
+
+### Surface Pressure
+Current Surface Pressure with Trend
+Daily High
+Daily Low
+
+### Humidity
+Current Humidity with Trend
+Daily High
+Daily Low
+
+### RainFall
+Daily Rainfall
+Current Rate
+Max Rate
+Yesterday's Rainfall
+
+### Wind
+Average Wind Speed
+Wind Direction
+Gust Speed
+Max Gust Speed
