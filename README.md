@@ -17,7 +17,7 @@ pebblejs-watchapp-cirrus supports the display of various weather items in either
 ## Weather Items
 
 ### Temperature
-Celsius or Fahrenheit
+Celsius (°C) or Fahrenheit (°F)
 * Current Temperature with Trend
 * Daily High
 * Daily Low
@@ -29,7 +29,7 @@ Hectopsacals (hPa) or Inches of Mercury (inHg)
 * Daily Low
 
 ### Humidity
-Percentage
+Percentage (%)
 * Current Humidity with Trend
 * Daily High
 * Daily Low
@@ -42,8 +42,7 @@ Millimetres (mm) or Inches (in)
 * Yesterday's Rainfall
 
 ### Wind
-Kilometres per Hour (km/h) or Miles per Hour (mph)
-Cardinal Direction
+Kilometres per Hour (km/h) or Miles per Hour (mph) and Cardinal Direction
 * Average Wind Speed
 * Wind Direction
 * Gust Speed
