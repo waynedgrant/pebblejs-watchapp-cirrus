@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Cirrus Settings</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    </head>
+
+    <body>
+
+        <div data-role="page">
+        	<div data-role="header">
+        		<h1>Cirrus Settings</h1>
+        	</div>
+
+        	<div data-role="main" class="ui-content">
+		
+        		<form>
+    		    
+        		    <div data-role="fieldcontain">
+        				<label for="weatherUrl">Web Service URL</label>
+        				<input type="url" name="weatherUrl" id="weatherUrl" value="http://www.waynedgrant.com/weather/api/weather.json">
+        			</div>
+		
+        			<div data-role="fieldcontain">
+        				<label for="units" class="select">Units</label>
+        				<select name="units" id="units">
+        					<option value="metric">Metric</option>
+        					<option value="imperial">Imperial</option>
+        				</select>
+        			</div>
+
+        			<div data-role="fieldcontain">
+        				<button type="submit" data-theme="b" id="saveBtn">Save</button>
+        				<button type="submit" data-theme="b" id="cancelBtn">Cancel</button>
+        			</div>
+			
+        		</form>
+    		
+        	</div>
+        </div>
+
+        <script>    
+            function saveOptions() {
+                var options = {
+            	    'weatherUrl' : $("#weatherUrl").val(),
+                    'units'      : $("#units").val()
+                }
+                return options;
+            }
+
+            $().ready(function() {
+            
+                $("#saveBtn").on("touchend", function() {
+                    var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+            	    document.location = location;
+                });
+        	
+                $("#cancelBtn").on("touchend", function() {
+                    document.location = "pebblejs://close";
+                });
+              
+                // Decode URL to get current settings
+                // e.g. 'http://www.waynedgrant.com/.../settings.html#{"weatherUrl":"http://.../weather.json","units":"imperial"}'
+                var url = decodeURIComponent(window.location.href);
+                var hashIndex = url.indexOf("#");
+              
+                if (hashIndex >= 0) {
+                    var json = url.substring(hashIndex+1);
+                    var currentOptions = jQuery.parseJSON(json);
+                
+                    for (key in currentOptions) {
+                        if (key === 'weatherUrl') {
+                            $("#weatherUrl").val(currentOptions[key]);            
+                        } else if (key === 'units') {
+                            $("#units").val(currentOptions[key]).change();
+                        }
+                    }
+                }
+            });
+        </script>
+
+    </body>
+</html>
