@@ -21,7 +21,7 @@ pebblejs-watchapp-cirrus supports the display of various weather items in either
 
 ## Installation
 
-Download [latest pbw]{https://github.com/waynedgrant/pebblejs-watchapp-cirrus/releases} on Android device and install via Pebble app
+Download [latest pbw](https://github.com/waynedgrant/pebblejs-watchapp-cirrus/releases) on Android device and install via Pebble app
 
 ## Weather Items
 
