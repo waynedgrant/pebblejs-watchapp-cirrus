@@ -1,7 +1,7 @@
 # pebblejs-watchapp-cirrus
 
 Copyright © 2015 Wayne D Grant
-W
+
 Licensed under the MIT License
 
 PebbleJS Watch App to display [Weather Display Live](http://www.weather-display.com/wdlive.php) data.
