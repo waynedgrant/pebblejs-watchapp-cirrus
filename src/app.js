@@ -123,15 +123,15 @@ function buildWeatherMenus(data) {
   var gust_speed = null;
   var max_gust_speed = null;
 
-  if (units == 'metric') { // TODO - get degree symbold working
+  if (units == 'metric') {
     temperature_current = format(data.temperature.current.c) + degreesC;
     temperature_high = format(data.temperature.high.c) + degreesC;
     temperature_low = format(data.temperature.low.c) + degreesC;
 
-    surface_pressure_current = format(data.pressure.current.hpa) + ' hPa';
-    surface_pressure_trend = format_trend(data.pressure.trend_per_hr.hpa);
-    surface_pressure_high = format(data.pressure.high.hpa) + ' hPa';
-    surface_pressure_low = format(data.pressure.low.hpa) + ' hPa';
+    surface_pressure_current = format(data.pressure.current.kpa) + ' kPa';
+    surface_pressure_trend = format_trend(data.pressure.trend_per_hr.kpa);
+    surface_pressure_high = format(data.pressure.high.kpa) + ' kPa';
+    surface_pressure_low = format(data.pressure.low.kpa) + ' kPa';
 
     daily_rainfall = format(data.rainfall.daily.mm) + ' mm';
     rainfall_rate = format(data.rainfall.rate_per_min.mm) + ' mm/min';

@@ -39,7 +39,7 @@
     "shortName": "Cirrus",
     "uuid": "01261a34-2630-4270-9a2a-f4454ecff5ad",
     "versionCode": 1,
-    "versionLabel": "0.1",
+    "versionLabel": "1.1",
     "watchapp": {
         "watchface": false
     }
