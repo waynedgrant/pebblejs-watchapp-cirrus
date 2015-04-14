@@ -32,7 +32,7 @@ Celsius (°C) or Fahrenheit (°F)
 * Daily Low
 
 ### Surface Pressure
-Hectopsacals (hPa) or Inches of Mercury (inHg)
+Kilopascals (kPa) or Inches of Mercury (inHg)
 * Current Surface Pressure with Trend
 * Daily High
 * Daily Low
