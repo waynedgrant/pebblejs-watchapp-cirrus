@@ -97,9 +97,11 @@ function get_weather() {
 function buildWeatherMenus(data) {
   var station_name = format(data.station.name);
   var local_time = format(data.time.time);
+  
+  var weather = data.weather;
 
   var temperature_current = null;
-  var temperature_trend = format_trend(data.temperature.trend);
+  var temperature_trend = format_trend(weather.temperature.trend);
   var temperature_high = null;
   var temperature_low = null;
 
@@ -108,10 +110,10 @@ function buildWeatherMenus(data) {
   var surface_pressure_high = null;
   var surface_pressure_low = null;
     
-  var humidity_current = format(data.humidity.current) + '%';
-  var humidity_trend = format_trend(data.humidity.trend);
-  var humidity_high = format(data.humidity.high) + '%';
-  var humidity_low = format(data.humidity.low) + '%';
+  var humidity_current = format(weather.humidity.current) + '%';
+  var humidity_trend = format_trend(weather.humidity.trend);
+  var humidity_high = format(weather.humidity.high) + '%';
+  var humidity_low = format(weather.humidity.low) + '%';
 
   var daily_rainfall = null;
   var rainfall_rate = null;
@@ -119,46 +121,46 @@ function buildWeatherMenus(data) {
   var yesterday_rainfall = null;
 
   var average_wind_speed = null;
-  var wind_direction = format(data.wind.direction.cardinal);
+  var wind_direction = format(weather.wind.direction.cardinal);
   var gust_speed = null;
   var max_gust_speed = null;
 
   if (units == 'metric') {
-    temperature_current = format(data.temperature.current.c) + degreesC;
-    temperature_high = format(data.temperature.high.c) + degreesC;
-    temperature_low = format(data.temperature.low.c) + degreesC;
+    temperature_current = format(weather.temperature.current.c) + degreesC;
+    temperature_high = format(weather.temperature.high.c) + degreesC;
+    temperature_low = format(weather.temperature.low.c) + degreesC;
 
-    surface_pressure_current = format(data.pressure.current.kpa) + ' kPa';
-    surface_pressure_trend = format_trend(data.pressure.trend_per_hr.kpa);
-    surface_pressure_high = format(data.pressure.high.kpa) + ' kPa';
-    surface_pressure_low = format(data.pressure.low.kpa) + ' kPa';
+    surface_pressure_current = format(weather.pressure.current.kpa) + ' kPa';
+    surface_pressure_trend = format_trend(weather.pressure.trend_per_hr.kpa);
+    surface_pressure_high = format(weather.pressure.high.kpa) + ' kPa';
+    surface_pressure_low = format(weather.pressure.low.kpa) + ' kPa';
 
-    daily_rainfall = format(data.rainfall.daily.mm) + ' mm';
-    rainfall_rate = format(data.rainfall.rate_per_min.mm) + ' mm/min';
-    max_rainfall_rate = format(data.rainfall.max_rate_per_min.mm) + ' mm/min';
-    yesterday_rainfall = format(data.rainfall.yesterday.mm) + ' mm';
+    daily_rainfall = format(weather.rainfall.daily.mm) + ' mm';
+    rainfall_rate = format(weather.rainfall.rate_per_min.mm) + ' mm/min';
+    max_rainfall_rate = format(weather.rainfall.max_rate_per_min.mm) + ' mm/min';
+    yesterday_rainfall = format(weather.rainfall.yesterday.mm) + ' mm';
 
-    average_wind_speed = format(data.wind.avg_speed.kmh) + ' km/h';
-    gust_speed = format(data.wind.gust_speed.kmh) + ' km/h';
-    max_gust_speed = format(data.wind.max_gust_speed.kmh) + ' km/h';
+    average_wind_speed = format(weather.wind.avg_speed.kmh) + ' km/h';
+    gust_speed = format(weather.wind.gust_speed.kmh) + ' km/h';
+    max_gust_speed = format(weather.wind.max_gust_speed.kmh) + ' km/h';
   } else {
-    temperature_current = format(data.temperature.current.f) + degreesF;
-    temperature_high = format(data.temperature.high.f) + degreesF;
-    temperature_low = format(data.temperature.low.f) + degreesF;
+    temperature_current = format(weather.temperature.current.f) + degreesF;
+    temperature_high = format(weather.temperature.high.f) + degreesF;
+    temperature_low = format(weather.temperature.low.f) + degreesF;
 
-    surface_pressure_current = format(data.pressure.current.inhg) + ' inHg';
-    surface_pressure_trend = format_trend(data.pressure.trend_per_hr.inhg);
-    surface_pressure_high = format(data.pressure.high.inhg) + ' inHg';
-    surface_pressure_low = format(data.pressure.low.inhg) + ' inHg';
+    surface_pressure_current = format(weather.pressure.current.inhg) + ' inHg';
+    surface_pressure_trend = format_trend(weather.pressure.trend_per_hr.inhg);
+    surface_pressure_high = format(weather.pressure.high.inhg) + ' inHg';
+    surface_pressure_low = format(weather.pressure.low.inhg) + ' inHg';
 
-    daily_rainfall = format(data.rainfall.daily.in) + ' in';
-    rainfall_rate = format(data.rainfall.rate_per_min.in) + ' in/min';
-    max_rainfall_rate = format(data.rainfall.max_rate_per_min.in) + ' in/min';
-    yesterday_rainfall = format(data.rainfall.yesterday.in) + ' in';
+    daily_rainfall = format(weather.rainfall.daily.in) + ' in';
+    rainfall_rate = format(weather.rainfall.rate_per_min.in) + ' in/min';
+    max_rainfall_rate = format(weather.rainfall.max_rate_per_min.in) + ' in/min';
+    yesterday_rainfall = format(weather.rainfall.yesterday.in) + ' in';
 
-    average_wind_speed = format(data.wind.avg_speed.mph) + ' mph';
-    gust_speed = format(data.wind.gust_speed.mph) + ' mph';
-    max_gust_speed = format(data.wind.max_gust_speed.mph) + ' mph';
+    average_wind_speed = format(weather.wind.avg_speed.mph) + ' mph';
+    gust_speed = format(weather.wind.gust_speed.mph) + ' mph';
+    max_gust_speed = format(weather.wind.max_gust_speed.mph) + ' mph';
   }
 
   var mainMenu =
