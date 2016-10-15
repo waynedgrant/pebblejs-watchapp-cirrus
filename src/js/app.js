@@ -1,4 +1,4 @@
-// Copyright 2015 Wayne D Grant (www.waynedgrant.com)
+// Copyright 2016 Wayne D Grant (waynedgrant.com)
 // Licensed under the MIT License
 
 var ajax = require('ajax');
@@ -28,11 +28,11 @@ var fetchFailedCard = new UI.Card({
 var mainMenu = null;
 
 Settings.config(
-  { url: 'http://www.waynedgrant.com/pebblejs-watchapp-cirrus/settings.html' },
+  { url: 'http://waynedgrant.com/pebblejs-watchapp-cirrus/settings.html' },
   function(e) { // Settings page closed
     configRequiredCard.hide();
     fetchFailedCard.hide();
-    if (e.options.weatherUrl != null) { // Settings page not canceled
+    if (e.options.weatherUrl != null) { // Settings page not cancelled
         get_weather();
     }
   }

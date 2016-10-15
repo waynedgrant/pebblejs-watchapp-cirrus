@@ -3,7 +3,7 @@
     "capabilities": [
         "configurable"
     ],
-    "companyName": "www.waynedgrant.com",
+    "companyName": "waynedgrant.com",
     "longName": "Cirrus Weather Display",
     "projectType": "pebblejs",
     "resources": {
@@ -11,17 +11,17 @@
             {
                 "file": "images/menu_icon.png",
                 "name": "IMAGE_MENU_ICON",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "images/logo_splash.png",
                 "name": "IMAGE_LOGO_SPLASH",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "images/tile_splash.png",
                 "name": "IMAGE_TILE_SPLASH",
-                "type": "png"
+                "type": "bitmap"
             },
             {
                 "file": "fonts/UbuntuMono-Regular.ttf",
@@ -32,15 +32,19 @@
                 "file": "images/cirrus.png",
                 "menuIcon": true,
                 "name": "IMAGES_CIRRUS_PNG",
-                "type": "png"
+                "type": "bitmap"
             }
         ]
     },
     "sdkVersion": "3",
     "shortName": "Cirrus",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
     "uuid": "01261a34-2630-4270-9a2a-f4454ecff5ad",
     "versionCode": 1,
-    "versionLabel": "1.1",
+    "versionLabel": "1.2",
     "watchapp": {
         "hiddenApp": false,
         "watchface": false
